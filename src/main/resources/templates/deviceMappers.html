@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<th:block th:include="common/header :: head"></th:block>
+<body>
+<th:block th:include="common/header :: header"></th:block>
+
+<div class="container">
+
+    <div th:if="${not #lists.isEmpty(mobileTruckMapperDtos)}">
+        <h2>Device Mapper List</h2>
+        <table class="table table-striped">
+            <tr>
+                <th>Moible Number</th>
+                <th>Moible DeviceId</th>
+                <th>License Plate</th>
+            </tr>
+            <tr th:each="deviceMapper : ${mobileTruckMapperDtos}">
+
+                <td th:text="${deviceMapper.moibleNumber}"></td>
+                <td th:text="${deviceMapper.moibleDeviceId}"></td>
+                <td th:text="${deviceMapper.licensePlate}"></td>
+            </tr>
+        </table>
+
+    </div>
+</div>
+<th:block th:include="common/footer :: footer"></th:block>
+</body>
+</html>
